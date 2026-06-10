@@ -19,13 +19,13 @@ export const POST = withBugStack(async (request: NextRequest) => {
     return NextResponse.json({ error: 'insufficient_stock' }, { status: 400 });
   }
 
+  const order = await db.orders.create({
+    data: { productId, quantity, userId },
+  });
+
   await db.products.update({
     where: { id: productId },
     data: { stock: { decrement: quantity } },
-  });
-
-  const order = await db.orders.create({
-    data: { productId, quantity, userId },
   });
 
   return NextResponse.json({ orderId: order.id, productId, quantity });
