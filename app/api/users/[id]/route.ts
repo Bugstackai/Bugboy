@@ -16,8 +16,8 @@ export const GET = withBugStack(
       name: user.name,
       email: user.email,
       role: user.role,
-      avatar: user.profile.avatarUrl,
-      department: user.profile.department,
+      avatar: user.profile?.avatarUrl,
+      department: user.profile?.department,
       joinedAt: user.createdAt.toISOString(),
     });
   }
