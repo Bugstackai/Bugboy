@@ -21,7 +21,7 @@ export const GET = withBugStack(async (request: NextRequest) => {
     isActive: user.lastLoginAt
       ? Date.now() - user.lastLoginAt.getTime() < 30 * 24 * 60 * 60 * 1000
       : false
-  }));
+  })).filter(user => user !== null);
 
   return NextResponse.json({
     users: transformedUsers,
