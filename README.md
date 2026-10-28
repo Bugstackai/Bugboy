@@ -29,7 +29,7 @@ cp .env.example .env.local
 Edit `.env.local` with your values:
 
 ```env
-ERROR_SERVICE_URL=https://api.bugstack.dev
+ERROR_SERVICE_URL=https://dashboard.bugstack.ai
 BUGSTACK_API_KEY=your_api_key_here
 GITHUB_REPO=MasonBachmann7/bugboy
 ```
